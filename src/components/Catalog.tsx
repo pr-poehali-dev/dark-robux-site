@@ -3,11 +3,13 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
+const PRICE_PER_ROBUX = 0.94;
+
 const packages = [
   {
     id: 1,
     robux: 400,
-    price: 299,
+    price: Math.round(400 * PRICE_PER_ROBUX),
     popular: false,
     discount: null,
     icon: '⭐'
@@ -15,7 +17,7 @@ const packages = [
   {
     id: 2,
     robux: 800,
-    price: 549,
+    price: Math.round(800 * PRICE_PER_ROBUX),
     popular: true,
     discount: '10%',
     icon: '🔥'
@@ -23,7 +25,7 @@ const packages = [
   {
     id: 3,
     robux: 1700,
-    price: 1099,
+    price: Math.round(1700 * PRICE_PER_ROBUX),
     popular: false,
     discount: '15%',
     icon: '💫'
@@ -31,7 +33,7 @@ const packages = [
   {
     id: 4,
     robux: 4500,
-    price: 2799,
+    price: Math.round(4500 * PRICE_PER_ROBUX),
     popular: false,
     discount: '20%',
     icon: '👑'
@@ -39,7 +41,7 @@ const packages = [
   {
     id: 5,
     robux: 10000,
-    price: 5999,
+    price: Math.round(10000 * PRICE_PER_ROBUX),
     popular: false,
     discount: '25%',
     icon: '💎'
@@ -47,7 +49,7 @@ const packages = [
   {
     id: 6,
     robux: 22500,
-    price: 12999,
+    price: Math.round(22500 * PRICE_PER_ROBUX),
     popular: false,
     discount: '30%',
     icon: '🚀'
