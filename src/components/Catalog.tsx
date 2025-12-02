@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
+import OrderModal from './OrderModal';
 
 const PRICE_PER_ROBUX = 0.94;
 
@@ -57,8 +59,12 @@ const packages = [
 ];
 
 const Catalog = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<{ robux: number; price: number } | null>(null);
+
   const handlePurchase = (robux: number, price: number) => {
-    alert(`Покупка ${robux} Robux за ${price}₽. Функция оформления заказа будет добавлена позже!`);
+    setSelectedPackage({ robux, price });
+    setIsModalOpen(true);
   };
 
   return (
@@ -150,6 +156,15 @@ const Catalog = () => {
           </p>
         </div>
       </div>
+
+      {selectedPackage && (
+        <OrderModal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          robux={selectedPackage.robux}
+          price={selectedPackage.price}
+        />
+      )}
     </section>
   );
 };
